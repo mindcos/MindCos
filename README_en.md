@@ -42,16 +42,24 @@ Follow the instructions below to install MindCos and its dependencies.
 https://www.mindspore.cn/install
 ```
 
-Example installation command:
-```bash
-conda create -n MindCos python==3.9
-pip install https://ms-release.obs.cn-north-4.myhuaweicloud.com/2.2.14/MindSpore/unified/x86_64/mindspore-2.2.14-cp39-cp39-linux_x86_64.whl --trusted-host ms-release.obs.cn-north-4.myhuaweicloud.com -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
 ### Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Install GPU Version of MindSpore
-For Ascend or GPU support, refer to the [installation instructions](gpu_version_install.txt).
+Note: When install energyflow, the dependency package "Wasserstein" may install failed due to version conflict.
+
+Please download the pacakge and install it manually.
+
+```bash
+git clone https://github.com/thaler-lab/Wasserstein.git
+cd Wasserstein
+#edit Wasserstein/pyproject.toml line 4
+#"swig", to "swig==4.0.0",
+pip install -e .
+```
+
+### Install MindCos
+```bash
+pip install -e .
+```

@@ -42,16 +42,24 @@ MindCos基于昇思MindSpore框架开发，是一个专为宇宙学研究设计�
 https://www.mindspore.cn/install
 ```
 
-示例安装命令：
-```bash
-conda create -n MindCos python==3.9
-pip install https://ms-release.obs.cn-north-4.myhuaweicloud.com/2.2.14/MindSpore/unified/x86_64/mindspore-2.2.14-cp39-cp39-linux_x86_64.whl --trusted-host ms-release.obs.cn-north-4.myhuaweicloud.com -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
 ### 安装依赖库
 ```bash
 pip install -r requirements.txt
 ```
 
-### 安装GPU版本的MindSpore
-有关昇腾或GPU支持的安装，请参考[安装说明](gpu_version_install.txt)。
+注意: 安装energyflow库时，其依赖包"Wasserstein"可能会因为版本问题安装失败。
+
+请按照下面方法手动下载并安装。
+
+```bash
+git clone https://github.com/thaler-lab/Wasserstein.git
+cd Wasserstein
+#打开并编辑文件：Wasserstein/pyproject.toml的第4行
+#将"swig", 改为 "swig==4.0.0",
+pip install -e .
+```
+
+### 安装MindCos
+```bash
+pip install -e .
+```
